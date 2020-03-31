@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="41a353cb-a8ac-4974-bf6b-27583d173e69" name="Default Changelist" comment="Initial project commit">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/keras-yolo3-airsim.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/StartUp_Airsim.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/behavior.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/convert.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/darknet53.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/FiraMono-Medium.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/SIL Open Font License.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image_handler_airsim.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model_data/coco_classes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model_data/tiny_yolo_anchors.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model_data/voc_classes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model_data/yolo_anchors.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yolo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yolo3/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yolo3/model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yolo3/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yolov3-tiny.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yolov3.cfg" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1Yl7rzoWHs3DzebD9np48RF6fAS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="TODO_SCOPE" value="All Places" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AirsimCar" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="StartUp_Airsim" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="keras-yolo3-airsim" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\bacio\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/StartUp_Airsim.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="41a353cb-a8ac-4974-bf6b-27583d173e69" name="Default Changelist" comment="" />
+      <created>1583505529362</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583505529362</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial project commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial project commit" />
+  </component>
+</project>
