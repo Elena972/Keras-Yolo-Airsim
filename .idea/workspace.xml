@@ -1,33 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41a353cb-a8ac-4974-bf6b-27583d173e69" name="Default Changelist" comment="Initial project commit">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/keras-yolo3-airsim.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StartUp_Airsim.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/behavior.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/convert.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/darknet53.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/FiraMono-Medium.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/SIL Open Font License.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_handler_airsim.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model_data/coco_classes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model_data/tiny_yolo_anchors.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model_data/voc_classes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model_data/yolo_anchors.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yolo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yolo3/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yolo3/model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yolo3/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yolov3-tiny.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yolov3.cfg" afterDir="false" />
+    <list default="true" id="41a353cb-a8ac-4974-bf6b-27583d173e69" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yolo.py" beforeDir="false" afterPath="$PROJECT_DIR$/yolo.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,6 +75,14 @@
       <option name="presentableId" value="Default" />
       <updated>1583505529362</updated>
     </task>
+    <task id="LOCAL-00001" summary="Initial project commit">
+      <created>1585639431580</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585639431580</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -105,7 +90,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

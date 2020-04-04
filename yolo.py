@@ -157,7 +157,8 @@ class YOLO(object):
             y_img = image.size[1]
 
             # distance between the bottom of rectangle and the sensor car model
-            distance.append(sqrt((x_center - x_img)**2 + (bottom - y_img)**2)/10)
+            distance_car_object = float("{:.2f}".format(sqrt((x_center - x_img)**2 + (bottom - y_img)**2)*0.026))
+            distance.append(distance_car_object)
             left_point.append(left)
 
             #print("The distance between car model and ", label, "is: ", distance, "meters")
@@ -176,6 +177,9 @@ class YOLO(object):
                 [tuple(text_origin), tuple(text_origin + label_size)],
                 fill=self.colors[c])
             draw.text(text_origin, label, fill=(0, 0, 0), font=font)
+            draw.line([(x_center, bottom), (x_img, y_img)], fill=self.colors[c])
+            draw.text([(x_center + x_img)/2, (bottom + y_img)/2], str(distance_car_object)+" cm",
+                      fill=self.colors[c], font=font)
             del draw
 
         end = timer()

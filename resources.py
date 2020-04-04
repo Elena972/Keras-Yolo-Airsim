@@ -10,6 +10,6 @@ z_orientation = 0.7081858515739441
 
 right_line = x_location - 0.3
 left_line = x_location + 0.3
-TH_distance = 28.0
+TH_distance = 7.2
 TH_left_point_obj = 200.0
 
