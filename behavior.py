@@ -24,10 +24,10 @@ def drive_straight(client, car_controls, distance, top_point_of_object):
         car_controls.brake = 0.4
         client.setCarControls(car_controls)
         print("Frana!", top_point_of_object, distance)
-        time.sleep(1.5)  # let car drive a bit
+        time.sleep(1)  # let car drive a bit
         car_controls.brake = 0  # remove brake
-        client.simPrintLogMessage("Regim de franare pentru evitarea coliziunii!", "345", 3)
-        time.sleep(2)
+        #client.simPrintLogMessage("Regim de franare pentru evitarea coliziunii!", "345", 3)
+        time.sleep(1)
 
     elif resources.right_line < x_car_in_move < resources.left_line and np.any(distance > resources.TH_distance) \
             or (np.all(distance == 0.) and np.all(top_point_of_object == 0.)):
@@ -36,7 +36,7 @@ def drive_straight(client, car_controls, distance, top_point_of_object):
         car_controls.steering = 0
         client.setCarControls(car_controls)
         print("Inainte", top_point_of_object, distance)
-        time.sleep(1)
+        time.sleep(0.5)
 
     elif x_car_in_move <= resources.right_line and np.any(distance > resources.TH_distance):
         # Go forward + steer left
@@ -55,4 +55,5 @@ def drive_straight(client, car_controls, distance, top_point_of_object):
         time.sleep(1)
 
     else:
-        print("Inainte din inertie", top_point_of_object, distance)
+        if 7.2 < np.all(distance) < 7.5:
+            print("Inainte din inertie", top_point_of_object, distance)

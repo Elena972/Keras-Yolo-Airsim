@@ -8,11 +8,12 @@ from math import sqrt
 from timeit import default_timer as timer
 
 import numpy as np
+import cv2
 from keras import backend as K
 from keras.models import load_model
 from keras.layers import Input
 from PIL import Image, ImageFont, ImageDraw
-import image_handler_airsim
+import resources
 
 from yolo3.model import yolo_eval, yolo_body, tiny_yolo_body
 from yolo3.utils import letterbox_image
@@ -21,9 +22,9 @@ from keras.utils import multi_gpu_model
 
 class YOLO(object):
     _defaults = {
-        "model_path": 'model_data/yolo.h5',
+        "model_path": 'model_data/trained_weights_cpu2.h5',
         "anchors_path": 'model_data/yolo_anchors.txt',
-        "classes_path": 'model_data/coco_classes.txt',
+        "classes_path": '2_classes.txt',
         "score" : 0.3,
         "iou" : 0.45,
         "model_image_size" : (416, 416),
@@ -168,6 +169,9 @@ class YOLO(object):
             else:
                 text_origin = np.array([left, top + 1])
 
+            # apply non-max suppression
+            #indices = cv2.dnn.NMSBoxes(box, score, 0.3, 0.25)
+
             # My kingdom for a good redistributable image drawing library.
             for i in range(thickness):
                 draw.rectangle(
@@ -177,9 +181,15 @@ class YOLO(object):
                 [tuple(text_origin), tuple(text_origin + label_size)],
                 fill=self.colors[c])
             draw.text(text_origin, label, fill=(0, 0, 0), font=font)
-            draw.line([(x_center, bottom), (x_img, y_img)], fill=self.colors[c])
-            draw.text([(x_center + x_img)/2, (bottom + y_img)/2], str(distance_car_object)+" cm",
-                      fill=self.colors[c], font=font)
+            if distance_car_object < resources.TH_distance:
+                draw.line([(x_center, bottom), (x_img, y_img)], fill=(255, 0, 0))
+                draw.text([(x_center + x_img)/2, (bottom + y_img)/2], str(distance_car_object)+" m",
+                          fill=(255, 0, 0), font=font)
+            else:
+                draw.line([(x_center, bottom), (x_img, y_img)], fill=self.colors[c])
+                draw.text([(x_center + x_img) / 2, (bottom + y_img) / 2], str(distance_car_object) + " m",
+                          fill=self.colors[c], font=font)
+
             del draw
 
         end = timer()

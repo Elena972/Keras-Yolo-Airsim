@@ -3,6 +3,9 @@ import cv2
 import numpy as np
 import os
 import behavior
+import behavior3
+import behavior2
+import behavior4
 import resources
 import datetime
 import yolo
@@ -36,7 +39,7 @@ class AirsimHandler:
                 image_result = img_dist_topleftp[0]
                 image_result.save(resources.filename + date_time + ".png")
                 behavior.drive_straight(self.client, airsim.CarControls(),
-                                        img_dist_topleftp[1], img_dist_topleftp[2])
+                                         img_dist_topleftp[1], img_dist_topleftp[2])
         yoloclient.close_session()
         self.client.reset()
 
