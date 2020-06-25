@@ -1,32 +1,32 @@
 # -*- coding: utf-8 -*-
 """
 Class definition of YOLO_v3 style detection model on image
+Definition for mAP evaluation
 """
-
+import numpy as np
+import resources
+import os
 import colorsys
 from math import sqrt
 from timeit import default_timer as timer
-
-import numpy as np
-import cv2
 from keras import backend as K
 from keras.models import load_model
 from keras.layers import Input
 from PIL import Image, ImageFont, ImageDraw
-import resources
-
 from yolo3.model import yolo_eval, yolo_body, tiny_yolo_body
+from yolo3.evaluate import normalize, evaluate
 from yolo3.utils import letterbox_image
-import os
+from yolo3.voc import parse_voc_annotation
+from generator import BatchGenerator
 from keras.utils import multi_gpu_model
 
 class YOLO(object):
     _defaults = {
-        "model_path": 'model_data/trained_weights_cpu2.h5',
+        "model_path": 'model_data/trained_weights_srv_1.h5',
         "anchors_path": 'model_data/yolo_anchors.txt',
         "classes_path": '2_classes.txt',
         "score" : 0.3,
-        "iou" : 0.45,
+        "iou" : 0.5,
         "model_image_size" : (416, 416),
         "gpu_num" : 0,
     }
@@ -143,21 +143,22 @@ class YOLO(object):
             label = '{} {:.2f}'.format(predicted_class, score)
             draw = ImageDraw.Draw(image)
             label_size = draw.textsize(label, font)
+            # print(label, (left, top), (right, bottom))
 
+            # box coordinates: x_min = left, y_min = top, x_max = right, y_max = bottom
             top, left, bottom, right = box
             top = max(0, np.floor(top + 0.5).astype('int32'))
             left = max(0, np.floor(left + 0.5).astype('int32'))
             bottom = min(image.size[1], np.floor(bottom + 0.5).astype('int32'))
             right = min(image.size[0], np.floor(right + 0.5).astype('int32'))
-            # print(label, (left, top), (right, bottom))
 
-            # get the bottom middle x coordinate of the box
+            # get the middle X coordinate of the box
             x_center = (left + right) / 2
 
             x_img = image.size[0] / 2
             y_img = image.size[1]
 
-            # distance between the bottom of rectangle and the sensor car model
+            # distance
             distance_car_object = float("{:.2f}".format(sqrt((x_center - x_img)**2 + (bottom - y_img)**2)*0.026))
             distance.append(distance_car_object)
             left_point.append(left)
@@ -193,9 +194,55 @@ class YOLO(object):
             del draw
 
         end = timer()
-        print("Time for detection: ", end - start)
+        print("Time for detection: " "%.2f" % (end - start), "sec")
         result = image, distance, left_point
         return result
+
+    def calculateMap(self, config):
+        ###############################
+        #   Create the validation generator
+        ###############################
+        valid_ints, labels = parse_voc_annotation(
+            config['valid']['valid_annot_folder'],
+            config['valid']['valid_image_folder'],
+            config['valid']['cache_name'],
+            config['model']['labels']
+        )
+
+        labels = labels.keys() if len(config['model']['labels']) == 0 else config['model']['labels']
+        labels = sorted(labels)
+
+        valid_generator = BatchGenerator(
+            instances=valid_ints,
+            anchors=config['model']['anchors'],
+            labels=labels,
+            downsample=32,  # ratio between network input's size and network output's size, 32 for YOLOv3
+            max_box_per_image=0,
+            batch_size=config['train']['batch_size'],
+            min_net_size=config['model']['min_input_size'],
+            max_net_size=config['model']['max_input_size'],
+            shuffle=True,
+            jitter=0.0,
+            norm=normalize
+        )
+
+        ###############################
+        #   Load the model and do evaluation
+        ###############################
+        os.environ['CUDA_VISIBLE_DEVICES'] = config['train']['gpus']
+
+        #infer_model = load_model(config['train']['saved_weights_name'])
+        infer_model = yolo_body(Input(shape=(None, None, 3)), len(self.anchors) // 3, len(self.class_names))
+        infer_model.load_weights("D:/PyCharm/PycharmProjects/keras-yolo3-airsim/model_data/trained_weights_srv_1.h5")  # make sure model, anchors and classes match
+
+
+        # compute mAP for all the classes
+        average_precisions = evaluate(infer_model, valid_generator)
+
+        # print the score
+        for label, average_precision in average_precisions.items():
+            print(labels[label] + ': {:.4f}'.format(average_precision))
+        print('mAP: {:.4f}'.format(sum(average_precisions.values()) / len(average_precisions)))
 
     def close_session(self):
         self.sess.close()

@@ -1,5 +1,4 @@
 import airsim
-import cv2
 import numpy as np
 import os
 import behavior
@@ -18,9 +17,9 @@ class AirsimHandler:
         self.client = airsim.CarClient()
         self.client.enableApiControl(True)
 
-    def saveImagesFromEnv(self, yoloclient=yolo.YOLO()):
-        behavior.location(self.client)
+    def evaluate_all_tasks(self, yoloclient=yolo.YOLO()):
 
+        behavior2.location(self.client)
         while not self.client.confirmConnection():
             responses = self.load_images()
             for response in responses:
@@ -34,11 +33,10 @@ class AirsimHandler:
                 # reshape array to 4 channel image array H X W X 4
                 img_rgba = image.reshape(response.height, response.width, 4)
                 img_rgb = rgba2rgb(img_rgba)
-                img_light = cv2.add(img_rgb, np.array([30.0]))
-                img_dist_topleftp = yoloclient.detect_image(img_light)
+                img_dist_topleftp = yoloclient.detect_image(img_rgb)
                 image_result = img_dist_topleftp[0]
                 image_result.save(resources.filename + date_time + ".png")
-                behavior.drive_straight(self.client, airsim.CarControls(),
+                behavior2.drive(self.client, airsim.CarControls(),
                                          img_dist_topleftp[1], img_dist_topleftp[2])
         yoloclient.close_session()
         self.client.reset()

@@ -8,8 +8,8 @@ x_orientation = 9.883959864964709e-05
 y_orientation = -5.5520467867609113e-05
 z_orientation = 0.7081858515739441
 
-right_line = x_location - 0.3
-left_line = x_location + 0.3
+right_line = x_location - 0.4
+left_line = x_location + 0.4
 TH_distance = 7.2
 TH_left_point_obj = 200.0
 
