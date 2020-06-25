@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="41a353cb-a8ac-4974-bf6b-27583d173e69" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StartUp_Airsim.py" beforeDir="false" afterPath="$PROJECT_DIR$/StartUp_Airsim.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/behavior.py" beforeDir="false" afterPath="$PROJECT_DIR$/behavior.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_handler_airsim.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_handler_airsim.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training_history.py" beforeDir="false" afterPath="$PROJECT_DIR$/training_history.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yolo.py" beforeDir="false" afterPath="$PROJECT_DIR$/yolo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yolov3.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/yolov3.cfg" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -148,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590323280275</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="mAP and more features">
+      <created>1593083099076</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1593083099076</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,6 +168,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial project commit" />
     <MESSAGE value="Modify distance and draw distance line" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modify distance and draw distance line" />
+    <MESSAGE value="mAP and more features" />
+    <option name="LAST_COMMIT_MESSAGE" value="mAP and more features" />
   </component>
 </project>
